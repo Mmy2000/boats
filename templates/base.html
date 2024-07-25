@@ -85,8 +85,8 @@
             <div class="container">
                 <nav class="navbar navbar-expand-lg navbar-light"> 
                     <a href="#" class="navbar-brand p-0">
-                        <h1 class="text-primary mb-0"><i class="fab fa-slack me-2"></i> LifeSure</h1>
-                        <!-- <img src="img/logo.png" alt="Logo"> -->
+                        
+                        <img src="{{myfooter.logo.url}}" height="100px" width="100px" alt="Logo">
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                         <span class="fa fa-bars"></span>
@@ -98,15 +98,13 @@
                             <a href="{% url 'services'%}" class="nav-item nav-link {% if request.path == '/services/' %}active{% endif %}">Services</a>
                             <a href="blog.html" class="nav-item nav-link">Blog</a>
                             <div class="nav-item dropdown">
-                                <a href="#" class="nav-link" data-bs-toggle="dropdown">
-                                    <span class="dropdown-toggle">Pages</span>
+                                <a href="#" class="nav-link {% if 'about' in request.path %} active {% endif %}" data-bs-toggle="dropdown">
+                                    <span class="dropdown-toggle">Abouts</span>
                                 </a>
                                 <div class="dropdown-menu">
-                                    <a href="feature.html" class="dropdown-item">Our Features</a>
-                                    <a href="team.html" class="dropdown-item">Our team</a>
-                                    <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                                    <a href="FAQ.html" class="dropdown-item">FAQs</a>
-                                    <a href="404.html" class="dropdown-item">404 Page</a>
+                                    <a href="{% url 'about_us'%}" class="dropdown-item">About US</a>
+                                    <a href="{% url 'about_ceo'%}" class="dropdown-item">About CEO</a>
+                                    
                                 </div>
                             </div>
                             <a href="contact.html" class="nav-item nav-link">Contact</a>
@@ -166,10 +164,10 @@
                                 <div class="col-md-6 col-lg-6 col-xl-5">
                                     <div class="footer-item">
                                         <a href="index.html" class="p-0">
-                                            <h3 class="text-white"><i class="fab fa-slack me-3"></i> LifeSure</h3>
+                                            <h3 class="text-white"><i class="fab fa-slack me-3"></i> {{myfooter.site_name}}</h3>
                                             <!-- <img src="img/logo.png" alt="Logo"> -->
                                         </a>
-                                        <p class="text-white mb-4">Dolor amet sit justo amet elitr clita ipsum elitr est.Lorem ipsum dolor sit amet, consectetur adipiscing...</p>
+                                        <p class="text-white mb-4">{{myfooter.description}}</p>
                                         <div class="footer-btn d-flex">
                                             <a class="btn btn-md-square rounded-circle me-3" href="#"><i class="fab fa-facebook-f"></i></a>
                                             <a class="btn btn-md-square rounded-circle me-3" href="#"><i class="fab fa-twitter"></i></a>

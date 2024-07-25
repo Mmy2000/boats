@@ -16,5 +16,24 @@ About CEO
             </div>
         </div>
         <!-- Header End -->
+         <div class="container ceo-section">
+    <div class="row justify-content-center text-center">
+        <div class="col-md-4">
+            <img src="{% if about_ceo.image_cover %}{{ about_ceo.image_cover.url }}{% else %}https://via.placeholder.com/200{% endif %}" alt="CEO Image" class="ceo-image img-fluid">
+        </div>
+        <div class="col-md-8">
+            <h2 class="mt-4">John Doe</h2>
+            <h4 class="text-muted">Chief Executive Officer</h4>
+            <p class="mt-4">
+                {{about_ceo.description|safe}}
+            </p>
+            <div class="social-icons">
+                <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock %}
