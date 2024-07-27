@@ -28,6 +28,7 @@ urlpatterns = [
     path('services/',include('services.urls')),
     path('about-us/',include('aboutus.urls')),
     path('about-ceo/',include('about.urls')),
+    path('contact/',include('contacts.urls')),
 ]
 urlpatterns +=  static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
