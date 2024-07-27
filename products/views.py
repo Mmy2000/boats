@@ -7,3 +7,17 @@ def product_list(request):
         'products':products
     }
     return render(request , 'products.html' , context)
+
+def parts(request):
+    products = Product.objects.filter(category__name= 'Parts')
+    context = {
+        'products':products
+    }
+    return render(request , 'products.html' , context)
+
+def on_sale(request):
+    products = Product.objects.filter(category__name= 'Boats for sales')
+    context = {
+        'products':products
+    }
+    return render(request , 'products.html' , context)

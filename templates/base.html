@@ -96,6 +96,8 @@
                         <div class="navbar-nav mx-0 mx-lg-auto">
                             <a href="/" class="nav-item nav-link {% if request.path == '/' %}active{% endif %}">Home</a>
                             <a href="{% url 'services'%}" class="nav-item nav-link {% if request.path == '/services/' %}active{% endif %}">Services</a>
+                            <a href="{% url 'on_sale'%}" class="nav-item nav-link {% if request.path == '/boats/on_sale/' %}active{% endif %}">Sale</a>
+                            <a href="{% url 'parts'%}" class="nav-item nav-link {% if request.path == '/boats/parts/' %}active{% endif %}">Parts</a>
                             
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link {% if 'about' in request.path %} active {% endif %}" data-bs-toggle="dropdown">
