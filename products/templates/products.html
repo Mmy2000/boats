@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Our Products
+{% endblock title %}
+{% block body %}
+
+<!-- Header Start -->
+<div class="container-fluid bg-breadcrumb">
+    <div class="container text-center py-5" style="max-width: 900px;">
+        <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Products</h4>
+        <ol class="breadcrumb d-flex justify-content-center mb-0 wow fadeInDown" data-wow-delay="0.3s">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item active text-primary">Products</li>
+        </ol>
+    </div>
+</div>
+<!-- Header End -->
+
+<div class="container2 my-5">
+    {% for product in products %}
+        <div class="card">
+            <div class="card-header">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        {% comment %} <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image"> {% endcomment %}
+                        {% for image in product.productgallary_set.all %}
+                        <div class="swiper-slide">
+                            
+                            <img src="{{ image.image.url }}" alt="{{ product.name }}" class="product-image">
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <!-- Add Pagination -->
+                    <div class="swiper-pagination"></div>
+                </div>
+                {% if product.is_used %}
+                <div class="used-tag">USED</div>
+                {% endif %}
+            </div>
+            <div class="details">
+                <h2 class="title">{{ product.name }}</h2>
+                <p class="size">{{ product.size }} Feet</p>
+                <p class="price">Price: {{ product.price|floatformat:2 }} AED</p>
+                <div class="contact-buttons">
+                    <a href="tel:+123456789" class="call">📞 Call</a>
+                    <a href="https://wa.me/+123456789" class="whatsapp">WhatsApp</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+</div>
+<script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var swiper = new Swiper('.swiper-container', {
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },
+            });
+        });
+    </script>
+
+{% endblock %}
