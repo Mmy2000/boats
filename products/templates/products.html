@@ -40,7 +40,7 @@ Our Products
             </div>
             <div class="details">
                 <h2 class="title">{{ product.name }}</h2>
-                <p class="size">{{ product.size }} Feet</p>
+                <p class="size">{{ product.description|safe }}</p>
                 <p class="price">Price: {{ product.price|floatformat:2 }} AED</p>
                 <div class="contact-buttons">
                     <a href="tel:+123456789" class="call">📞 Call</a>
