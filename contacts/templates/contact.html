@@ -21,6 +21,7 @@ Contact Us
         <!-- Contact Start -->
         <div class="container-fluid contact bg-light py-5">
             <div class="container py-5">
+                {% include "includes/alerts.html" %}
                 <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
                     <h4 class="text-primary">Contact Us</h4>
                     <h1 class="display-4 mb-4">If you have any comments please apply now</h1>
@@ -62,8 +63,8 @@ Contact Us
                                     </div>
                                     <div class="col-12">
                                         <div class="form-floating">
-                                            <textarea class="form-control border-0" name="message" placeholder="Leave a message here" id="message" style="height: 120px"></textarea>
-                                            <label for="message">Message</label>
+                                            <textarea class="form-control border-0" name="message" placeholder="Leave a message here" id="messages" style="height: 120px"></textarea>
+                                            <label for="messages">Message</label>
                                         </div>
 
                                     </div>

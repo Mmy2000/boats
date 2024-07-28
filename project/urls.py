@@ -24,7 +24,7 @@ from settings.views import home
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('summernote/' , include('django_summernote.urls')),
-    path('', home , name='home' ),
+    path('',include('settings.urls') ),
     path('services/',include('services.urls')),
     path('about-us/',include('aboutus.urls')),
     path('about-ceo/',include('about.urls')),

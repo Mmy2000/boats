@@ -31,7 +31,8 @@ def search(request):
         if q :
             product = Product.objects.filter(
                 Q(description__icontains=q ) |
-                Q( name__icontains=q)
+                Q( name__icontains=q) |
+                Q(category__name__icontains=q)
                 )
         else :
             return render(request , 'products.html')
