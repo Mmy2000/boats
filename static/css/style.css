@@ -1063,7 +1063,7 @@
     opacity: 1;
 }
 
-.social-icons {
+.social-icons-side {
     position: fixed;
     left: 0;
     top: 50%;
@@ -1073,7 +1073,7 @@
     flex-direction: column;
 }
 
-.social-icons a {
+.social-icons-side a {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1088,30 +1088,30 @@
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-.social-icons a i {
+.social-icons-side a i {
     font-size: 24px;
 }
 
-.social-icons a.whatsapp-side {
+.social-icons-side a.whatsapp-side {
     background-color: #25d366;
     color: #fff;
 }
 
-.social-icons a.facebook {
+.social-icons-side a.facebook-side {
     background-color: #3b5998;
     color: #fff;
 }
 
-.social-icons a.instagram {
+.social-icons-side a.instagram-side {
     background-color: #e4405f;
     color: #fff;
 }
 
-.social-icons a.tiktok {
+.social-icons-side a.tiktok-side {
     background-color: #010101;
     color: #fff;
 }
 
-.social-icons a:hover {
+.social-icons-side a:hover {
     transform: scale(1.1);
 }
