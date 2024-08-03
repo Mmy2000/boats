@@ -63,6 +63,7 @@ Our Products
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         var swiper = new Swiper('.swiper-container', {
+            loop: false, // Disable looping to show only one image at a time
             pagination: {
                 el: '.swiper-pagination',
                 clickable: true,
@@ -71,6 +72,7 @@ Our Products
                 delay: 3000,
                 disableOnInteraction: false,
             },
+            slidesPerView: 1, // Show one slide at a time
         });
     });
 </script>
