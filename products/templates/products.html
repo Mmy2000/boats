@@ -19,11 +19,12 @@ Our Products
 
 <div class="container2 my-5">
     {% if products %}
-    {% for product in products %}
-    <div class="card">
-        <div class="card-header">
-            <div class="swiper-container">
-                <div class="swiper-wrapper">
+    <div class="cards-container">
+        {% for product in products %}
+        <div class="card">
+            <div class="card-header">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
                         <!-- Main image as the first slide -->
                         <div class="swiper-slide">
                             <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image">
@@ -37,26 +38,28 @@ Our Products
                     </div>
                     <!-- Add Pagination -->
                     <div class="swiper-pagination"></div>
+                </div>
+                {% if product.is_used %}
+                <div class="used-tag">USED</div>
+                {% endif %}
             </div>
-            {% if product.is_used %}
-            <div class="used-tag">USED</div>
-            {% endif %}
-        </div>
-        <div class="details">
-            <h2 class="title">{{ product.name }}</h2>
-            <p class="size">{{ product.description|safe }}</p>
-            <p class="price">Price: {{ product.price|floatformat:2 }} AED</p>
-            <div class="contact-buttons">
-                <a href="tel:+123456789" class="call">📞 Call</a>
-                <a href="https://wa.me/+123456789" target="_blank" class="whatsapp">WhatsApp</a>
+            <div class="details">
+                <h2 class="title">{{ product.name }}</h2>
+                <p class="size">{{ product.description|safe }}</p>
+                <p class="price">Price: {{ product.price|floatformat:2 }} AED</p>
+                <div class="contact-buttons">
+                    <a href="tel:+123456789" class="call">📞 Call</a>
+                    <a href="https://wa.me/+123456789" target="_blank" class="whatsapp"><i class="fa-brands fa-whatsapp me-1"></i>WhatsApp</a>
+                </div>
             </div>
         </div>
+        {% endfor %}
     </div>
-    {% endfor %}
     {% else %}
     <h2>No Products Found</h2>
     {% endif %}
 </div>
+
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         var swiper = new Swiper('.swiper-container', {
