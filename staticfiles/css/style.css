@@ -905,13 +905,20 @@
             text-decoration: none;
         }
 
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Optional: Adjust the gap between cards */
+}
+
 .card {
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 100%;
+    width: calc(33.333% - 20px); /* Subtracting the gap to fit three cards in a row */
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
@@ -929,7 +936,7 @@
 .product-image {
     width: 100%;
     height: 100%;
-    object-fit: contain;  /* Ensure the image covers the container without stretching */
+    object-fit: cover;  /* Ensure the image covers the container */
 }
 
 .used-tag {
@@ -969,7 +976,7 @@
 
 .contact-buttons {
     display: flex;
-    justify-content: space-between;
+    gap: 10px;
 }
 
 .call, .whatsapp {
@@ -977,24 +984,41 @@
     margin: 5px;
     padding: 10px;
     border: none;
-    border-radius: 4px;
+    border-radius: 8px; /* Changed to a more rounded look */
     color: #fff;
     text-align: center;
-    text-decoration: none;
-    font-size: 14px;
+    text-decoration: none; /* Remove default text decoration */
+    font-size: 16px; /* Increased font size */
     cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s; /* Added smooth transition */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Added box shadow */
 }
+
 
 .call {
     background-color: #007bff;
+}
+
+.call:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    box-shadow: 0 6px 12px rgba(0, 91, 187, 0.5); /* Enhanced shadow on hover */
+    transform: translateY(-3px); /* Slight lift on hover */
+    color: #fff;
 }
 
 .whatsapp {
     background-color: #25d366;
 }
 
+.whatsapp:hover {
+    background-color: #1ebe52; /* Darker green on hover */
+    box-shadow: 0 6px 12px rgba(30, 190, 82, 0.5); /* Enhanced shadow on hover */
+    transform: translateY(-3px); /* Slight lift on hover */
+    color: #fff;
+}
+
 @media (max-width: 768px) {
-    .container {
+    .cards-container {
         flex-direction: column;
         align-items: center;
     }
@@ -1004,7 +1028,7 @@
     }
 }
 
-/* Swiper styles */
+
 .swiper-container {
     width: 100%;
     height: 400px; /* Adjust height as needed */
@@ -1014,6 +1038,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%; /* Ensure the slide takes the full width */
 }
 
 .swiper-pagination {
@@ -1025,4 +1050,68 @@
     gap: 20px;
     max-width: 1200px;
     margin: auto;
+}
+
+#message {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#message.show {
+    display: block;
+    opacity: 1;
+}
+
+.social-icons-side {
+    position: fixed;
+    left: 0;
+    top: 50%;
+    z-index: 100000000000;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+}
+
+.social-icons-side a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    margin: 5px 0;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    color: #000;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.social-icons-side a i {
+    font-size: 24px;
+}
+
+.social-icons-side a.whatsapp-side {
+    background-color: #25d366;
+    color: #fff;
+}
+
+.social-icons-side a.facebook-side {
+    background-color: #3b5998;
+    color: #fff;
+}
+
+.social-icons-side a.instagram-side {
+    background-color: #e4405f;
+    color: #fff;
+}
+
+.social-icons-side a.tiktok-side {
+    background-color: #010101;
+    color: #fff;
+}
+
+.social-icons-side a:hover {
+    transform: scale(1.1);
 }

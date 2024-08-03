@@ -102,3 +102,32 @@
 
 })(jQuery);
 
+document.getElementById('newsletterForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const form = event.target;
+    const formData = new FormData(form);
+    const csrfToken = form.querySelector('[name=csrfmiddlewaretoken]').value;
+
+    fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+            'X-CSRFToken': csrfToken,
+            'Accept': 'application/json',
+        },
+    })
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById('newsletterForm').style.display = 'none';
+        const messageDiv = document.getElementById('message');
+        messageDiv.innerText = data.message;
+        messageDiv.style.display = 'block';
+        
+        // Use a timeout to ensure the transition occurs
+        setTimeout(() => {
+            messageDiv.classList.add('show');
+        }, 10);
+    })
+    .catch(error => console.error('Error:', error));
+});
